@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/__init__.py", line 17, in <module>
+    from earth2mip._config import Settings
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/_config.py", line 20, in <module>
+    from pydantic import BaseSettings, Field
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/__init__.py", line 363, in __getattr__
+    return _getattr_migration(attr_name)
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/_migration.py", line 296, in wrapper
+    raise PydanticImportError(
+pydantic.errors.PydanticImportError: `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.5/migration/#basesettings-has-moved-to-pydantic-settings for more details.
+
+For further information visit https://errors.pydantic.dev/2.5/u/import-error
+srun: error: nid006739: task 0: Exited with exit code 1
+srun: Terminating StepId=32165730.0
