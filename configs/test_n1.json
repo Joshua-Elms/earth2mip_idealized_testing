@@ -36,7 +36,7 @@
     },
     "output_path": "/pscratch/sd/j/joshelms/HENS_out",
     "output_frequency": 1,
-    "weather_model": "multicheckpoint",
+    "weather_model": "sfno_linear_74chq_sc2_layers8_edim620_wstgl2-epoch70_seed102",
     "use_cuda_graphs": false,
     "ensemble_batch_size": 1,
     "autocast_fp16": false,
