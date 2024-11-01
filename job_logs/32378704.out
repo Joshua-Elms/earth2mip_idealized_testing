@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/opt/modulus/modulus/distributed/manager.py", line 293, in initialize
+    DistributedManager.initialize_env()
+  File "/opt/modulus/modulus/distributed/manager.py", line 208, in initialize_env
+    rank = int(os.environ.get("RANK"))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/inference_ensemble.py", line 503, in <module>
+    main()
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/inference_ensemble.py", line 212, in main
+    DistributedManager.initialize()
+  File "/opt/modulus/modulus/distributed/manager.py", line 296, in initialize
+    DistributedManager.initialize_slurm(port)
+  File "/opt/modulus/modulus/distributed/manager.py", line 252, in initialize_slurm
+    DistributedManager.setup(
+  File "/opt/modulus/modulus/distributed/manager.py", line 359, in setup
+    torch.cuda.device(manager.device)
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 366, in __init__
+    self.idx = _get_device_index(device, optional=True)
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py", line 35, in _get_device_index
+    raise ValueError(f"Expected a cuda device, but got: {device}")
+ValueError: Expected a cuda device, but got: cpu
+srun: error: nid008209: task 0: Exited with exit code 1
+srun: Terminating StepId=32378704.0
