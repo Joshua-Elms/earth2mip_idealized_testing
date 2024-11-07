@@ -20,12 +20,6 @@
                     ]
                 },
                 {
-                    "type": "heat_index",
-                    "channels": [
-                        "t2m", "d2m"
-                    ]
-                },
-                {
                     "type": "wind_speed10m",
                     "channels": [
                         "u10m", "v10m"
@@ -40,7 +34,7 @@
     "use_cuda_graphs": false,
     "ensemble_batch_size": 1,
     "autocast_fp16": false,
-    "perturbation_strategy": "bred_vector_timeevolve",
+    "perturbation_strategy": "none",
     "grf_noise_sigma" : 10, 
     "noise_reddening": 2.0
 }
