@@ -1,0 +1,51 @@
+INFO:root:Earth-2 MIP config loaded weather_model='sfno_linear_74chq_sc2_layers8_edim620_wstgl2-epoch70_seed102' simulation_length=28 perturbation_strategy=<PerturbationStrategy.none: 'none'> perturbation_channels=None noise_reddening=2.0 noise_amplitude=0.01 output_frequency=1 output_grid=None ensemble_members=1 seed=None ensemble_batch_size=1 forecast_name=None weather_event=WeatherEvent(properties=WeatherEventProperties(name='Globe', start_time=datetime.datetime(2023, 6, 1, 0, 0), initial_condition_source=<InitialConditionSource.era5: 'era5'>, netcdf='', restart=''), domains=[Window(type='Window', name='global', lat_min=-90, lat_max=90, lon_min=0, lon_max=360, diagnostics=[Diagnostic(type='raw', function='', channels=['t2m', 'd2m', 'tcwv', 't850', 'z500', 'z300', 'msl', 't500', 'sp'], nbins=10), Diagnostic(type='ivt', function='', channels=['ivt'], nbins=10), Diagnostic(type='wind_speed10m', function='', channels=['u10m', 'v10m'], nbins=10)])]) output_dir=None output_path='/pscratch/sd/j/joshelms/HENS_out' restart_frequency=None grf_noise_alpha=2.0 grf_noise_sigma=10.0 grf_noise_tau=2.0 subtract_perturbation=None
+INFO:root:Loading model onto device cuda:0
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/inference_ensemble.py", line 503, in <module>
+    main()
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/inference_ensemble.py", line 267, in main
+    model = get_model(config.weather_model, device=device)
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/networks/__init__.py", line 360, in get_model
+    return _load_package(package, metadata, device)
+  File "/global/u2/j/joshelms/projects/earth2mip-fork/earth2mip/networks/__init__.py", line 317, in _load_package
+    inference_loader = ep.load()
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+    module = import_module(match.group('module'))
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/makani/makani/__init__.py", line 18, in <module>
+    from .utils.trainer import Trainer
+  File "/opt/makani/makani/utils/trainer.py", line 32, in <module>
+    import wandb
+  File "/usr/local/lib/python3.10/dist-packages/wandb/__init__.py", line 21, in <module>
+    from wandb import sdk as wandb_sdk
+  File "/usr/local/lib/python3.10/dist-packages/wandb/sdk/__init__.py", line 28, in <module>
+    from .wandb_init import _attach, init
+  File "/usr/local/lib/python3.10/dist-packages/wandb/sdk/wandb_init.py", line 41, in <module>
+    from . import wandb_login, wandb_setup
+  File "/usr/local/lib/python3.10/dist-packages/wandb/sdk/wandb_setup.py", line 26, in <module>
+    from . import wandb_settings
+  File "/usr/local/lib/python3.10/dist-packages/wandb/sdk/wandb_settings.py", line 25, in <module>
+    from pydantic import (
+ImportError: cannot import name 'computed_field' from 'pydantic' (/global/homes/j/joshelms/supplemental_packages/pydantic_supplement_modulus-makani:0.1.0-torch_patch-23.11-multicheckpoint/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+srun: error: nid008413: task 0: Exited with exit code 1
+srun: Terminating StepId=35724972.0
+Completed run
